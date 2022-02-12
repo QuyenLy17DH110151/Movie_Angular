@@ -1,0 +1,12 @@
+.contanier {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+p-card {
+  width: 20rem;
+  /* height: 20rem; */
+  margin-top: 2rem;
+  margin-left: 2rem;
+}

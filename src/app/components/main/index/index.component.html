@@ -1,0 +1,7 @@
+<div class="contanier" *ngIf="movies">
+  <p-card *ngFor="let movie of movies" header="{{ movie.original_title }}">
+    <ng-template pTemplate="header">
+      <img alt="Card" [src]="setImage(movie.poster_path)" />
+    </ng-template>
+  </p-card>
+</div>
