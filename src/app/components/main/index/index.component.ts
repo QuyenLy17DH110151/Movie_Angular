@@ -15,12 +15,12 @@ export class IndexComponent implements OnInit, OnDestroy {
   constructor(private moviesService: MoviesService) {}
 
   ngOnInit(): void {
-    this.loadMovie();
+    this.loadMovie(1);
   }
 
-  loadMovie() {
+  loadMovie(page: number) {
     this.subs.push(
-      this.moviesService.loadPopular(1).subscribe({
+      this.moviesService.loadPopular(page).subscribe({
         next: (res) => {
           this.movies = res.results;
         },

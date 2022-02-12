@@ -6,7 +6,17 @@
 }
 p-card {
   width: 20rem;
-  /* height: 20rem; */
+  height: 40rem;
   margin-top: 2rem;
   margin-left: 2rem;
+}
+.pages {
+  list-style: none;
+  display: flex;
+  justify-content: center;
+}
+
+.page-item {
+  list-style: none;
+  margin-left: 5px;
 }

@@ -1,7 +1,20 @@
-<div class="contanier" *ngIf="movies">
+<div class="contanier">
   <p-card *ngFor="let movie of movies" header="{{ movie.original_title }}">
     <ng-template pTemplate="header">
       <img alt="Card" [src]="setImage(movie.poster_path)" />
     </ng-template>
   </p-card>
 </div>
+
+<li>
+  <ul class="pages">
+    <li class="page-item" *ngFor="let number of [0, 1, 2, 3, 4]">
+      <button
+        pButton
+        type="button"
+        label="{{ number + 1 }}"
+        (click)="loadMovie(number + 1)"
+      ></button>
+    </li>
+  </ul>
+</li>
