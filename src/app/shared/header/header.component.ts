@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { MenuItem } from 'primeng/api';
 
 @Component({
@@ -8,15 +8,17 @@ import { MenuItem } from 'primeng/api';
 })
 export class HeaderComponent implements OnInit {
   items: MenuItem[] = [];
+  @Input() valueChild: string = '0';
   constructor() {}
 
   ngOnInit(): void {
-    this.items = [
-      { label: 'Home', icon: 'pi pi-fw pi-home' },
-      { label: 'Calendar', icon: 'pi pi-fw pi-calendar' },
-      { label: 'Edit', icon: 'pi pi-fw pi-pencil' },
-      { label: 'Documentation', icon: 'pi pi-fw pi-file' },
-      { label: 'Settings', icon: 'pi pi-fw pi-cog' },
-    ];
+    // this.items = [
+    //   { label: 'Home', icon: 'pi pi-fw pi-home' },
+    //   { label: 'Calendar', icon: 'pi pi-fw pi-calendar' },
+    //   { label: 'Edit', icon: 'pi pi-fw pi-pencil' },
+    //   { label: 'Documentation', icon: 'pi pi-fw pi-file' },
+    //   { label: 'Settings', icon: 'pi pi-fw pi-cog' },
+    // ];
+    // console.log(this.valueChild);
   }
 }

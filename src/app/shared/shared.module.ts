@@ -6,10 +6,11 @@ import { FooterComponent } from './footer/footer.component';
 //Prime
 import { TabMenuModule } from 'primeng/tabmenu';
 import { MenubarModule } from 'primeng/menubar';
+import { BadgeModule } from 'primeng/badge';
 
 @NgModule({
   declarations: [HeaderComponent, FooterComponent],
-  imports: [CommonModule, TabMenuModule, MenubarModule],
+  imports: [CommonModule, TabMenuModule, MenubarModule, BadgeModule],
   exports: [HeaderComponent, FooterComponent],
 })
 export class SharedModule {}

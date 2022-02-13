@@ -12,9 +12,11 @@ import { DynamicDialogModule } from 'primeng/dynamicdialog';
 import { DetailComponent } from './detail/detail.component';
 import { FieldsetModule } from 'primeng/fieldset';
 import { YtPlayerAngularModule } from 'yt-player-angular';
+import { ToastModule } from 'primeng/toast';
+import { AboutComponent } from './about/about.component';
 
 @NgModule({
-  declarations: [IndexComponent, MainComponent, DetailComponent],
+  declarations: [IndexComponent, MainComponent, DetailComponent, AboutComponent],
   imports: [
     CommonModule,
     CardModule,
@@ -24,6 +26,7 @@ import { YtPlayerAngularModule } from 'yt-player-angular';
     DynamicDialogModule,
     FieldsetModule,
     YtPlayerAngularModule,
+    ToastModule,
   ],
   exports: [MainComponent],
 })
