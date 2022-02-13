@@ -1,4 +1,5 @@
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { SharedService } from 'src/app/services/shared.service';
 
 @Component({
   selector: 'app-main',
@@ -6,16 +7,11 @@ import { Component, EventEmitter, OnInit, Output } from '@angular/core';
   styleUrls: ['./main.component.css'],
 })
 export class MainComponent implements OnInit {
-  constructor() {}
-  @Output() eventEmit = new EventEmitter<number>();
-  @Output() newItemEvent = new EventEmitter<number>();
+  constructor(private shareService: SharedService) {}
 
-  ngOnInit(): void {
-    this.addItem(1);
-  }
+  ngOnInit(): void {}
 
   public addItem(event: any) {
-    console.log(event);
-    this.eventEmit.emit(event);
+    this.shareService.emitChange(event);
   }
 }

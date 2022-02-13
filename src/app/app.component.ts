@@ -1,16 +1,20 @@
-import { AfterViewInit, Component, Input } from '@angular/core';
+import { AfterViewInit, Component, Input, OnInit } from '@angular/core';
+import { SharedService } from './services/shared.service';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css'],
 })
-export class AppComponent implements AfterViewInit {
+export class AppComponent implements AfterViewInit, OnInit {
   child: string = '';
   title = 'movie-app';
+  constructor(private shareService: SharedService) {}
 
-  public dataFromChild(event: number) {
-    this.child = event.toString();
+  ngOnInit(): void {
+    this.shareService.changeEmitted$.subscribe((res) => {
+      this.child = res;
+    });
   }
 
   ngAfterViewInit(): void {}

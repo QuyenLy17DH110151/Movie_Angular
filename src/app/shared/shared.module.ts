@@ -7,10 +7,17 @@ import { FooterComponent } from './footer/footer.component';
 import { TabMenuModule } from 'primeng/tabmenu';
 import { MenubarModule } from 'primeng/menubar';
 import { BadgeModule } from 'primeng/badge';
+import { RouterModule } from '@angular/router';
 
 @NgModule({
   declarations: [HeaderComponent, FooterComponent],
-  imports: [CommonModule, TabMenuModule, MenubarModule, BadgeModule],
+  imports: [
+    CommonModule,
+    TabMenuModule,
+    MenubarModule,
+    BadgeModule,
+    RouterModule,
+  ],
   exports: [HeaderComponent, FooterComponent],
 })
 export class SharedModule {}

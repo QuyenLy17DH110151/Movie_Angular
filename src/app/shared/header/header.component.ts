@@ -12,13 +12,13 @@ export class HeaderComponent implements OnInit {
   constructor() {}
 
   ngOnInit(): void {
-    // this.items = [
-    //   { label: 'Home', icon: 'pi pi-fw pi-home' },
-    //   { label: 'Calendar', icon: 'pi pi-fw pi-calendar' },
-    //   { label: 'Edit', icon: 'pi pi-fw pi-pencil' },
-    //   { label: 'Documentation', icon: 'pi pi-fw pi-file' },
-    //   { label: 'Settings', icon: 'pi pi-fw pi-cog' },
-    // ];
+    this.items = [
+      { label: 'Home', icon: 'pi pi-fw pi-home', routerLink: '/home' },
+      { label: 'About', icon: 'pi pi-fw pi-calendar', routerLink: '/about' },
+      { label: 'Edit', icon: 'pi pi-fw pi-pencil' },
+      { label: 'Documentation', icon: 'pi pi-fw pi-file' },
+      { label: this.valueChild, icon: 'pi pi-fw pi-cog' },
+    ];
     // console.log(this.valueChild);
   }
 }

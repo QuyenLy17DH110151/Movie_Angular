@@ -28,7 +28,7 @@ export class IndexComponent implements OnInit, OnDestroy {
   ) {}
 
   ngOnInit(): void {
-    // this.loadMovie(1);
+    this.loadMovie(1);
     this.fixBugAsync();
   }
 
