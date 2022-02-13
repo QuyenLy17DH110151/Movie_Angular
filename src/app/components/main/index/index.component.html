@@ -1,7 +1,23 @@
 <div class="contanier">
-  <p-card *ngFor="let movie of movies" header="{{ movie.original_title }}">
+  <p-card *ngFor="let movie of movies" header="{{ movie.title }}">
     <ng-template pTemplate="header">
       <img alt="Card" [src]="setImage(movie.poster_path)" />
+    </ng-template>
+    <p>
+      {{ movie.overview }}
+    </p>
+    <ng-template pTemplate="footer">
+      <p-button
+        label="Detail"
+        (click)="show(movie.id, movie.title)"
+        icon="pi pi-check"
+      ></p-button>
+      <p-button
+        label="Cancel"
+        icon="pi pi-times"
+        styleClass="p-button-secondary"
+        [style]="{ 'margin-left': '.5em' }"
+      ></p-button>
     </ng-template>
   </p-card>
 </div>

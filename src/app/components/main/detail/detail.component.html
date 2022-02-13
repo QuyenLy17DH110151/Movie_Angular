@@ -1,0 +1,24 @@
+<div class="container" *ngIf="movie">
+  <!-- <div><img [src]="setImage(movie.poster_path)" alt="poster_path" /></div> -->
+  <div>
+    <div class="youtube">
+      <yt-player [videoId]="video.key"></yt-player>
+    </div>
+    <br />
+    <div>
+      <div class="overview">
+        <p-fieldset legend="Over view">
+          {{ movie.overview }}
+        </p-fieldset>
+      </div>
+    </div>
+    <br />
+    <p-fieldset legend="Product Companies">
+      <div class="product-companies">
+        <div *ngFor="let x of movie.production_companies">
+          <h3>{{ x.name }}</h3>
+          <img [src]="setImage(x.logo_path)" alt="logo_path" />
+        </div></div
+    ></p-fieldset>
+  </div>
+</div>

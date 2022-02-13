@@ -1,18 +1,24 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
+import { DialogService } from 'primeng/dynamicdialog';
 import { Subscription } from 'rxjs';
 import { Movie } from 'src/app/models/movie.model';
 import { MoviesService } from 'src/app/services/movies.service';
+import { IMGPATH } from 'src/app/shared/contants/share.contants';
+import { DetailComponent } from '../detail/detail.component';
 
 @Component({
   selector: 'app-index',
   templateUrl: './index.component.html',
   styleUrls: ['./index.component.css'],
+  providers: [DialogService],
 })
 export class IndexComponent implements OnInit, OnDestroy {
   movies: Array<Movie> = [];
   subs: Subscription[] = [];
-  IMGPATH: string = 'https://image.tmdb.org/t/p/w1280';
-  constructor(private moviesService: MoviesService) {}
+  constructor(
+    private moviesService: MoviesService,
+    public dialogService: DialogService
+  ) {}
 
   ngOnInit(): void {
     this.loadMovie(1);
@@ -29,7 +35,17 @@ export class IndexComponent implements OnInit, OnDestroy {
   }
 
   setImage(name: string): string {
-    return this.IMGPATH + name;
+    return IMGPATH + name;
+  }
+
+  show(id: number, title: string) {
+    const ref = this.dialogService.open(DetailComponent, {
+      data: {
+        id: id,
+      },
+      header: title,
+      width: '80%',
+    });
   }
 
   ngOnDestroy(): void {

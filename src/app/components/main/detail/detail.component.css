@@ -1,0 +1,26 @@
+.container {
+  display: flex;
+  justify-content: space-between;
+}
+
+img {
+  max-width: 10rem;
+}
+
+.overview {
+  text-align: justify;
+  text-justify: inter-word;
+}
+
+.product-companies {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: flex-end;
+}
+
+yt-player {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

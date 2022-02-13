@@ -15,4 +15,14 @@ export class MoviesService {
     const ULR_POPULAR = `${environment.url_movie}/movie/popular?api_key=${this.API_KEY}&language=${this.language}&page=${page}`;
     return this.http.get(ULR_POPULAR);
   }
+
+  getDetail(id: number): Observable<any> {
+    const url = `${environment.url_movie}/movie/${id}?api_key=${this.API_KEY}&language=${this.language}`;
+    return this.http.get(url);
+  }
+
+  getVideo(id: number): Observable<any> {
+    const url = `${environment.url_movie}/movie/${id}/videos?api_key=${this.API_KEY}&language=${this.language}`;
+    return this.http.get(url);
+  }
 }
