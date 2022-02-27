@@ -14,9 +14,14 @@ import { FieldsetModule } from 'primeng/fieldset';
 import { YtPlayerAngularModule } from 'yt-player-angular';
 import { ToastModule } from 'primeng/toast';
 import { AboutComponent } from './about/about.component';
-
+import { PanelModule } from 'primeng/panel';
 @NgModule({
-  declarations: [IndexComponent, MainComponent, DetailComponent, AboutComponent],
+  declarations: [
+    IndexComponent,
+    MainComponent,
+    DetailComponent,
+    AboutComponent,
+  ],
   imports: [
     CommonModule,
     CardModule,
@@ -27,6 +32,7 @@ import { AboutComponent } from './about/about.component';
     FieldsetModule,
     YtPlayerAngularModule,
     ToastModule,
+    PanelModule,
   ],
   exports: [MainComponent],
 })
