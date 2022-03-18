@@ -28,17 +28,8 @@ export class AboutComponent implements OnInit, AfterViewInit {
   constructor(private rd: Renderer2) {}
 
   ngAfterViewInit(): void {
-    console.log(this.rd);
-    console.log(this.main.nativeElement);
-    console.log(this.ok);
     this.rd.setStyle(this.main.nativeElement, 'flex', 1);
     this.ok.nativeElement.innerHTML = 'cc';
-    // console.log(this.rd.selectRootElement(this.main));
-    // console.log(this.rd.selectRootElement(this.test));
-    console.log(this.demoInput);
-    // if (this.demoInput) {
-    //   this.demoInput.nativeElement.value = 'Sunday!';
-    // }
   }
 
   ngOnInit(): void {}

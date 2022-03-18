@@ -1,7 +1,7 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { MessageService } from 'primeng/api';
 import { DialogService } from 'primeng/dynamicdialog';
-import { Subscription, mergeMap } from 'rxjs';
+import { Subscription, mergeMap, tap } from 'rxjs';
 import { Movie } from 'src/app/models/movie.model';
 import { MockService } from 'src/app/services/mock.service';
 import { MoviesService } from 'src/app/services/movies.service';
@@ -55,11 +55,10 @@ export class IndexComponent implements OnInit, OnDestroy {
 
   loadMovie(page: number) {
     this.subs.push(
-      this.moviesService.loadPopular(page).subscribe({
-        next: (res) => {
-          this.movies = res.results;
-        },
-      })
+      this.moviesService
+        .loadPopular(page)
+        .pipe(tap((res) => (this.movies = res.results)))
+        .subscribe()
     );
   }
 

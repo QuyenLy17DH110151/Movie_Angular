@@ -1,6 +1,6 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { DynamicDialogConfig, DynamicDialogRef } from 'primeng/dynamicdialog';
-import { forkJoin, Subscription } from 'rxjs';
+import { forkJoin, Subscription, switchMap, tap } from 'rxjs';
 import { Movie } from 'src/app/models/movie.model';
 import { Video } from 'src/app/models/video.model';
 import { MoviesService } from 'src/app/services/movies.service';
@@ -27,14 +27,29 @@ export class DetailComponent implements OnInit, OnDestroy {
 
   ngOnInit(): void {
     this.subs.push(
-      forkJoin(
-        this.moviesService.getDetail(this.config.data.id),
-        this.moviesService.getVideo(this.config.data.id)
-      ).subscribe((res) => {
-        this.movie = res[0];
-        this.video = res[1].results[0];
-      })
+      this.moviesService
+        .getDetail(this.config.data.id)
+        .pipe(
+          tap((res) => (this.movie = res)),
+          switchMap(() => {
+            return this.moviesService.getVideo(this.config.data.id);
+          }),
+          tap((res) => {
+            this.video = res.results[1];
+          })
+        )
+        .subscribe()
     );
+    // this.subs.push(
+    //   forkJoin(
+    //     this.moviesService.getDetail(this.config.data.id),
+    //     this.moviesService.getVideo(this.config.data.id)
+    //   ).subscribe((res) => {
+    //     this.movie = res[0];
+    //     console.log(res[1].results[0]);
+    //     this.video = res[1].results[0];
+    //   })
+    // );
   }
 
   setImage(name: string): string {
