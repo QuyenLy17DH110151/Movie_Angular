@@ -15,12 +15,16 @@ import { YtPlayerAngularModule } from 'yt-player-angular';
 import { ToastModule } from 'primeng/toast';
 import { AboutComponent } from './about/about.component';
 import { PanelModule } from 'primeng/panel';
+import { PersonComponent } from './person/person.component';
+import { PersonChildComponent } from './person/person-child/person-child.component';
 @NgModule({
   declarations: [
     IndexComponent,
     MainComponent,
     DetailComponent,
     AboutComponent,
+    PersonComponent,
+    PersonChildComponent,
   ],
   imports: [
     CommonModule,

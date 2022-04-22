@@ -16,7 +16,11 @@ export class HeaderComponent implements OnInit {
       { label: 'Home', icon: 'pi pi-fw pi-home', routerLink: '/home' },
       { label: 'About', icon: 'pi pi-fw pi-calendar', routerLink: '/about' },
       { label: 'Edit', icon: 'pi pi-fw pi-pencil' },
-      { label: 'Documentation', icon: 'pi pi-fw pi-file' },
+      {
+        label: 'Documentation',
+        icon: 'pi pi-fw pi-file',
+        routerLink: '/person',
+      },
       { label: this.valueChild, icon: 'pi pi-fw pi-cog' },
     ];
     // console.log(this.valueChild);

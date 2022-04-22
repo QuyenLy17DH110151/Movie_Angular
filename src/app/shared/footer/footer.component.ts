@@ -8,6 +8,7 @@ import { MenuItem } from 'primeng/api';
 })
 export class FooterComponent implements OnInit {
   items: MenuItem[] = [];
+  title: string = 'ABC';
   constructor() {}
 
   ngOnInit(): void {}
